@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "129322399078",
+    "project_id": "mars-rover-photos-11617",
+    "storage_bucket": "mars-rover-photos-11617.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129322399078:android:c3a5195fd15454d7f384a7",
+        "android_client_info": {
+          "package_name": "com.ltp.mars_rover_photos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129322399078-0sj39s1681m1mholdt65qdl2gg9eoqht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQusBWXdsxC832puKAfGIW9Ek3PbuhyZA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129322399078-0sj39s1681m1mholdt65qdl2gg9eoqht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129322399078:android:6d6d6005a019860cf384a7",
+        "android_client_info": {
+          "package_name": "com.ltp.marsrover"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129322399078-0sj39s1681m1mholdt65qdl2gg9eoqht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQusBWXdsxC832puKAfGIW9Ek3PbuhyZA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129322399078-0sj39s1681m1mholdt65qdl2gg9eoqht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129322399078:android:6dc394a5338567eff384a7",
+        "android_client_info": {
+          "package_name": "com.ltp.marsroverfotos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "129322399078-0sj39s1681m1mholdt65qdl2gg9eoqht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQusBWXdsxC832puKAfGIW9Ek3PbuhyZA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "129322399078-0sj39s1681m1mholdt65qdl2gg9eoqht.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
