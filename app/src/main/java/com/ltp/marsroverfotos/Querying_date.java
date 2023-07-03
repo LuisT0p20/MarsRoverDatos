@@ -1,9 +1,13 @@
 package com.ltp.marsroverfotos;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +34,8 @@ public class Querying_date extends AppCompatActivity {
     private Spinner spnCamera;
     private EditText editTextPage;
     private Button buttonSearch;
+    private ImageButton backMenu;
+    private TextView descripcionCamera;
     private RecyclerView recyclerViewPhotos;
     private PhotoAdapter photoAdapter;
     private List<Photo> photoList;
@@ -46,6 +52,8 @@ public class Querying_date extends AppCompatActivity {
         editTextPage = findViewById(R.id.editTextPage);
         buttonSearch = findViewById(R.id.buttonSearch);
         recyclerViewPhotos = findViewById(R.id.recyclerViewPhotos);
+        descripcionCamera = findViewById(R.id.descripcionCameraDate);
+        backMenu = findViewById(R.id.QueryingDateBackMenu);
 
         photoList = new ArrayList<>();
         photoAdapter = new PhotoAdapter(photoList);
@@ -60,6 +68,33 @@ public class Querying_date extends AppCompatActivity {
                 String page = editTextPage.getText().toString();
 
                 searchPhotos(date, camera, page);
+            }
+        });
+        backMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Querying_date.this,Menu.class);
+                startActivity(intent);
+            }
+        });
+        spnCamera.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String elementoSeleccionado = (String) parent.getItemAtPosition(position);
+                switch (elementoSeleccionado){
+                    case "FHAZ": descripcionCamera.setText("Front Hazard Avoidance Camera");break;
+                    case "RHAZ": descripcionCamera.setText("Rear Hazard Avoidance Camera");break;
+                    case "MAST": descripcionCamera.setText("Mast Camera");break;
+                    case "CHEMCAM": descripcionCamera.setText("Chemistry and Camera Complex");break;
+                    case "MAHLI": descripcionCamera.setText("Mars Hand Lens Imager");break;
+                    case "MARDI": descripcionCamera.setText("Mars Descent Imager");break;
+                    case "NAVCAM": descripcionCamera.setText("Navigation Camera");break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }

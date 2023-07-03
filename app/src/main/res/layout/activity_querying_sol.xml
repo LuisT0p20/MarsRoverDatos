@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Querying_sol">
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_query"
+    android:padding="16dp"
+    tools:context=".Querying_date">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:id="@+id/QueryingSolBackMenu"
+            android:contentDescription="@string/page"
+            android:layout_width="48dp"
+            android:background="@drawable/ic_back"
+            android:layout_height="48dp"/>
+        <TextView
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="@string/querying_sol"/>
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sol_martian"
+            android:textColor="@color/black"/>
+        <EditText
+            android:id="@+id/editTextSol"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_width="300dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_input_text"
+            android:hint="@string/sol_martian" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/camera"
+            android:textColor="@color/black"/>
+        <Spinner
+            android:id="@+id/spnCameraSol"
+            android:layout_width="300dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:layout_height="48dp"
+            android:entries="@array/camaras"
+            android:background="@drawable/style_spinner"
+            android:hint="Cámara" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/descripcionCameraSol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/page"
+            android:textColor="@color/black"/>
+        <EditText
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:id="@+id/editTextPageSol"
+            android:layout_width="300dp"
+            android:layout_height="48dp"
+            android:background="@drawable/rounded_input_text"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:hint="@string/page" />
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="16dp"
+        android:id="@+id/buttonSearchSol"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:text="@string/launch" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="16dp"
+        android:id="@+id/recyclerViewPhotosSol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
     android:background="@drawable/rounded_input_text"
     android:padding="10dp"
     android:orientation="vertical">
 
     <ImageView
         android:src="@drawable/planet"
+        android:contentDescription="@string/sol_martian"
         android:id="@+id/imageViewPhoto"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -43,6 +45,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <ImageButton
+        android:id="@+id/seleccionFavorites"
+        android:contentDescription="@string/go_favorites"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="290dp"

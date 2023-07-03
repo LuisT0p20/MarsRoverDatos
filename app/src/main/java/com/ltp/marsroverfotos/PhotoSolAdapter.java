@@ -13,12 +13,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder> {
+public class PhotoSolAdapter extends RecyclerView.Adapter<PhotoSolAdapter.PhotoViewHolder> {
 
-    private List<Photo> photoList;
+    private List<PhotoSol> photoSolList;
 
-    public PhotoAdapter(List<Photo> photoList) {
-        this.photoList = photoList;
+    public PhotoSolAdapter(List<PhotoSol> photoSolList) {
+        this.photoSolList = photoSolList;
     }
 
     @NonNull
@@ -30,27 +30,27 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
 
     @Override
     public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
-        Photo photo = photoList.get(position);
+        PhotoSol photoSol = photoSolList.get(position);
 
         Picasso.get()
-                .load(photo.getImageUrl())
+                .load(photoSol.getImageUrl())
                 .into(holder.imageViewPhoto);
 
-        holder.textViewDate.setText("Date: " + photo.getDate());
-        holder.textViewName.setText("Name: " + photo.getName());
-        holder.textViewLaunchDate.setText("Launch Date: " + photo.getLaunchDate());
-        holder.textViewArrivalDate.setText("Arrival Date: " + photo.getArrivalDate());
-        holder.textViewState.setText("State: " + photo.getState());
+        holder.textViewSol.setText("Sol: " + photoSol.getSol());
+        holder.textViewName.setText("Name: " + photoSol.getName());
+        holder.textViewLaunchDate.setText("Launch Date: " + photoSol.getLaunchDate());
+        holder.textViewArrivalDate.setText("Arrival Date: " + photoSol.getArrivalDate());
+        holder.textViewState.setText("State: " + photoSol.getState());
     }
 
     @Override
     public int getItemCount() {
-        return photoList.size();
+        return photoSolList.size();
     }
 
     public static class PhotoViewHolder extends RecyclerView.ViewHolder {
         public ImageView imageViewPhoto;
-        public TextView textViewDate;
+        public TextView textViewSol;
         public TextView textViewName;
         public TextView textViewLaunchDate;
         public TextView textViewArrivalDate;
@@ -59,7 +59,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
         public PhotoViewHolder(@NonNull View itemView) {
             super(itemView);
             imageViewPhoto = itemView.findViewById(R.id.imageViewPhoto);
-            textViewDate = itemView.findViewById(R.id.textViewDate);
+            textViewSol = itemView.findViewById(R.id.textViewDate);
             textViewName = itemView.findViewById(R.id.textViewName);
             textViewLaunchDate = itemView.findViewById(R.id.textViewLaunchDate);
             textViewArrivalDate = itemView.findViewById(R.id.textViewArrivalDate);
