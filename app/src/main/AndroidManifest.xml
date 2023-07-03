@@ -41,9 +41,10 @@
             android:exported="false" />
         <activity
             android:name=".Querying_date"
-            android:exported="false"/>
-        <activity android:name=".Menu"
-            android:exported="false"/>
+            android:exported="false" />
+        <activity
+            android:name=".Menu"
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -50,7 +50,7 @@
             tools:layout_editor_absoluteY="283dp"/>
 
         <Spinner
-            android:id="@+id/spnLanguaje"
+            android:id="@+id/spnLanguage"
             android:layout_width="300dp"
             android:layout_height="64dp"
             android:background="@drawable/style_spinner_settings"/>

@@ -21,33 +21,37 @@ import java.util.Locale;
 
 public class Settings extends AppCompatActivity implements View.OnClickListener {
     private String selectedLanguage;
+    private int selectedTextSize; // Variable para almacenar el tamaño de texto seleccionado
+
     ImageButton btnBackMenu;
-    Spinner spnLanguaje,spnTextSize;
+    Spinner spnLanguage, spnTextSize;
     Switch swModoOscuro;
     Button btnSaveSettings;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
         btnBackMenu = findViewById(R.id.btnImageBackSettings);
         btnBackMenu.setOnClickListener(this);
-        spnLanguaje = findViewById(R.id.spnLanguaje);
+
+        spnLanguage = findViewById(R.id.spnLanguage);
         spnTextSize = findViewById(R.id.spnTextSize);
         swModoOscuro = findViewById(R.id.switchDark);
         btnSaveSettings = findViewById(R.id.btnSaveSettings);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"English", "Español"});
-
-    // Configura el diseño del dropdown del spinner
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnLanguage.setAdapter(adapter);
 
-    // Asigna el adaptador al spinner
-        spnLanguaje.setAdapter(adapter);
+        ArrayAdapter<String> textSizeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, new String[]{"15", "18", "20"});
+        textSizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnTextSize.setAdapter(textSizeAdapter);
 
-        spnLanguaje.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spnLanguage.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                // Aquí puedes realizar acciones al seleccionar un idioma
                 selectedLanguage = parent.getItemAtPosition(position).toString();
             }
 
@@ -56,6 +60,19 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
 
             }
         });
+        spnTextSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedSize = parent.getItemAtPosition(position).toString();
+                selectedTextSize = Integer.parseInt(selectedSize);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         btnSaveSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,21 +84,30 @@ public class Settings extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void changeLanguage(String language) {
+        // Guardar el idioma seleccionado en las preferencias compartidas
         SharedPreferences preferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("language", language);
         editor.apply();
 
-        // Reiniciar la aplicación
-        Intent intent = getBaseContext().getPackageManager().getLaunchIntentForPackage(getBaseContext().getPackageName());
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        // Cambiar el idioma en tiempo de ejecución
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+
+        Resources resources = getResources();
+        Configuration configuration = resources.getConfiguration();
+        configuration.setLocale(locale);
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+
+        // Reiniciar la actividad actual
+        Intent intent = getIntent();
         finish();
+        startActivity(intent);
     }
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this,Menu.class);
+        Intent intent = new Intent(this, Menu.class);
         startActivity(intent);
     }
 }
