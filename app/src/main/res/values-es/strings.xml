@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Mars Rover Fotos</string>
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Ingresar</string>
+    <string name="signin">Entrar</string>
+    <string name="signup">Unirse</string>
+    <string name="consult_date">Consultar por fecha</string>
+    <string name="consult_sun">Consultar por Sol de Marte</string>
+    <string name="go_favorites">Favoritos</string>
+    <string name="querying_sol">Consular por sol</string>
+    <string name="launch">Lanzar</string>
+    <string name="sol_martian">Sol de Marte</string>
+    <string name="page">Página</string>
+    <string name="manifest_sun">Mnifiesto de la misión</string>
+    <array name="camaras">
+        <item>FHAZ</item>
+        <item>RHAZ</item>
+        <item>MAST</item>
+        <item>CHEMCAM</item>
+        <item>MAHLI</item>
+        <item>MARDI</item>
+        <item>NAVCAM</item>
+    </array>
+    <string name="validation_email">Correo incorrecto</string>
+    <string name="validation_password">Contraseña incorrecta</string>
+    <string name="register">Registro</string>
+    <string name="CreateAccount">Crear Cuenta</string>
+    <string name="settings">Configuración</string>
+    <string name="languaje">Idioma</string>
+    <string name="textSize">Tamaño de texto</string>
+    <string name="darkmode">Modo Oscuro</string>
+    <string name="Earth_date">Fecha de la tierra</string>
+    <string name="querying_date">Consultar por fecha de la tierra</string>
+    <string name="camera">Cámara</string>
+    <string name="signature_title">Mars rover</string>
+    <string name="reply_title">Mars Rover</string>
+    <string name="sync_header">sync header</string>
+    <string name="sync_title">sync title</string>
+    <string name="attachment_title">atachmment title\n</string>
+    <string name="save_settings">Guardar</string>
+
+    <string-array name="settings_textize">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
+</resources>

@@ -12,26 +12,25 @@
         android:id="@+id/btnImageBackSettings"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="64dp"
         android:background="@drawable/ic_back"
         android:contentDescription="ir a layout settings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/poppins_bold"
         android:text="@string/settings"
         android:textColor="@color/black"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -54,7 +53,6 @@
             android:id="@+id/spnLanguaje"
             android:layout_width="300dp"
             android:layout_height="64dp"
-            android:entries="@array/settings_languajes"
             android:background="@drawable/style_spinner_settings"/>
 
         <View
@@ -98,11 +96,13 @@
             tools:layout_editor_absoluteX="55dp"
             tools:layout_editor_absoluteY="364dp"/>
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="30dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
@@ -112,7 +112,7 @@
             android:layout_height="2dp"
             android:background="@color/black"
             tools:layout_editor_absoluteX="55dp"
-            tools:layout_editor_absoluteY="283dp"/>
+            tools:layout_editor_absoluteY="283dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -130,12 +130,13 @@
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 tools:layout_editor_absoluteX="55dp"
-                tools:layout_editor_absoluteY="293dp"/>
-            <androidx.appcompat.widget.SwitchCompat
+                tools:layout_editor_absoluteY="293dp" />
+
+            <android.widget.Switch
                 android:id="@+id/switchDark"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_marginStart="53dp"/>
+                android:layout_marginStart="53dp" />
 
         </LinearLayout>
 
@@ -144,6 +145,17 @@
             android:layout_height="2dp"
             android:background="@color/black"
             tools:layout_editor_absoluteX="55dp"
-            tools:layout_editor_absoluteY="364dp"/>
+            tools:layout_editor_absoluteY="364dp" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSaveSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/rounded_button"
+        android:text="@string/save_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

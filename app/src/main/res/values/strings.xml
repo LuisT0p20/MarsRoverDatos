@@ -38,11 +38,8 @@
     <string name="sync_header">sync header</string>
     <string name="sync_title">sync title</string>
     <string name="attachment_title">atachmment title\n</string>
+    <string name="save_settings">Save</string>
 
-    <string-array name="settings_languajes">
-        <item>English</item>
-        <item>Spanish</item>
-    </string-array>
     <string-array name="settings_textize">
         <item>15</item>
         <item>20</item>

@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <ImageView
+        android:layout_marginTop="20dp"
         android:src="@drawable/planet"
         android:contentDescription="@string/sol_martian"
         android:id="@+id/imageViewPhoto"

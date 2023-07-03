@@ -1,5 +1,6 @@
 package com.ltp.marsroverfotos;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +10,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder> {
-
+    Context context;
     private List<Photo> photoList;
 
     public PhotoAdapter(List<Photo> photoList) {
@@ -32,8 +36,11 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
         Photo photo = photoList.get(position);
 
-        Picasso.get()
+        // Descargar la imagen y guardarla en un archivo local
+        Glide.with(holder.itemView.getContext())
                 .load(photo.getImageUrl())
+                .centerCrop()
+                .error(R.drawable.planet)
                 .into(holder.imageViewPhoto);
 
         holder.textViewDate.setText("Date: " + photo.getDate());
