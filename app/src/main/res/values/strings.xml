@@ -1,3 +1,53 @@
 <resources>
-    <string name="app_name">MarsRoverFotos</string>
+    <string name="app_name">Mars Rover Photos</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="consult_date">Consult by date of the Earth</string>
+    <string name="consult_sun">Consult by Martian Sol</string>
+    <string name="go_favorites">Favorites</string>
+    <string name="querying_sol">Querying by Martian Sol</string>
+    <string name="launch">Launch</string>
+    <string name="sol_martian">Martian Sol</string>
+    <string name="page">Page</string>
+    <string name="manifest_sun">Mission Manifest</string>
+    <array name="camaras">
+        <item>FHAZ</item>
+        <item>RHAZ</item>
+        <item>MAST</item>
+        <item>CHEMCAM</item>
+        <item>MAHLI</item>
+        <item>MARDI</item>
+        <item>NAVCAM</item>
+        <item>PANCAM</item>
+        <item>MINITES</item>
+    </array>
+    <string name="validation_email">Incorrect Email</string>
+    <string name="validation_password">Incorrect Password</string>
+    <string name="register">Register</string>
+    <string name="CreateAccount">Create Account</string>
+    <string name="settings">Settings</string>
+    <string name="languaje">Languaje</string>
+    <string name="textSize">Text size</string>
+    <string name="darkmode">Dark mode</string>
+    <string name="Earth_date">Earth date</string>
+    <string name="querying_date">Querying by Earth date</string>
+    <string name="camera">Camera</string>
+    <string name="signature_title">Mars rover</string>
+    <string name="reply_title">Mars Rover</string>
+    <string name="sync_header">sync header</string>
+    <string name="sync_title">sync title</string>
+    <string name="attachment_title">atachmment title\n</string>
+
+    <string-array name="settings_languajes">
+        <item>English</item>
+        <item>Spanish</item>
+    </string-array>
+    <string-array name="settings_textize">
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+    </string-array>
 </resources>

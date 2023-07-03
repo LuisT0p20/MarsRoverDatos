@@ -3,6 +3,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,10 +24,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class Querying_date extends AppCompatActivity {
 
     private EditText editTextDate;
-    private EditText editTextCamera;
+    private Spinner spnCamera;
     private EditText editTextPage;
     private Button buttonSearch;
     private RecyclerView recyclerViewPhotos;
@@ -38,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_querying_date);
 
         editTextDate = findViewById(R.id.editTextDate);
-        editTextCamera = findViewById(R.id.editTextCamera);
+        spnCamera = findViewById(R.id.spnCameraDate);
         editTextPage = findViewById(R.id.editTextPage);
         buttonSearch = findViewById(R.id.buttonSearch);
         recyclerViewPhotos = findViewById(R.id.recyclerViewPhotos);
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String date = editTextDate.getText().toString();
-                String camera = editTextCamera.getText().toString();
+                String camera = spnCamera.getSelectedItem().toString();
                 String page = editTextPage.getText().toString();
 
                 searchPhotos(date, camera, page);
@@ -100,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(MainActivity.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Querying_date.this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
