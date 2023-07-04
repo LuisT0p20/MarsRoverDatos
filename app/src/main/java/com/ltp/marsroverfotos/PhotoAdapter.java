@@ -4,18 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder> {
     Context context;
@@ -24,6 +23,8 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
     public PhotoAdapter(List<Photo> photoList) {
         this.photoList = photoList;
     }
+
+
 
     @NonNull
     @Override
@@ -48,6 +49,21 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
         holder.textViewLaunchDate.setText("Launch Date: " + photo.getLaunchDate());
         holder.textViewArrivalDate.setText("Arrival Date: " + photo.getArrivalDate());
         holder.textViewState.setText("State: " + photo.getState());
+        holder.btnSelectFavorites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Photo selectedPhoto = photoList.get(holder.getAdapterPosition());
+
+
+                // Notificar el cambio en el ArrayList de favoritos
+                notifyFavoritesChanged();
+                Toast.makeText(v.getContext(), "Save", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void notifyFavoritesChanged() {
+        notifyDataSetChanged();
     }
 
     @Override
@@ -62,6 +78,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
         public TextView textViewLaunchDate;
         public TextView textViewArrivalDate;
         public TextView textViewState;
+        public ImageButton btnSelectFavorites;
 
         public PhotoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,6 +88,7 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
             textViewLaunchDate = itemView.findViewById(R.id.textViewLaunchDate);
             textViewArrivalDate = itemView.findViewById(R.id.textViewArrivalDate);
             textViewState = itemView.findViewById(R.id.textViewState);
+            btnSelectFavorites = itemView.findViewById(R.id.seleccionFavorites);
         }
     }
 }

@@ -30,9 +30,8 @@ import java.util.List;
 
 public class Querying_sol extends AppCompatActivity {
 
-    private EditText editTextSol;
+    private EditText editTextSol,editTextPageSol;
     private Spinner spnCameraSol;
-    private EditText editTextPageSol;
     private Button buttonSearch;
     private ImageButton backMenu;
     private TextView descripcionCamera;

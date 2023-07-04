@@ -86,7 +86,6 @@
             android:id="@+id/spnTextSize"
             android:layout_width="300dp"
             android:layout_height="64dp"
-            android:entries="@array/settings_textize"
             android:background="@drawable/style_spinner_settings"/>
 
         <View

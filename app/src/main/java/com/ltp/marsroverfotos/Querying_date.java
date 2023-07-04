@@ -30,15 +30,15 @@ import java.util.List;
 
 public class Querying_date extends AppCompatActivity {
 
-    private EditText editTextDate;
+    private EditText editTextDate,editTextPage;
     private Spinner spnCamera;
-    private EditText editTextPage;
     private Button buttonSearch;
     private ImageButton backMenu;
     private TextView descripcionCamera;
     private RecyclerView recyclerViewPhotos;
     private PhotoAdapter photoAdapter;
     private List<Photo> photoList;
+
 
     private static final String NASA_API_KEY = "KldB9Vs3yG5KAod8Euqigyw8Bky4HaMd2UMmV49w";
 
@@ -55,8 +55,9 @@ public class Querying_date extends AppCompatActivity {
         descripcionCamera = findViewById(R.id.descripcionCameraDate);
         backMenu = findViewById(R.id.QueryingDateBackMenu);
 
-        photoList = new ArrayList<>();
-        photoAdapter = new PhotoAdapter(photoList);
+        photoList = new ArrayList<>();//creacion de instancia ArrayList que se llamra photoList que es una lista de tipo photo
+        photoAdapter = new PhotoAdapter(photoList);//instancia photoAdapter que pasa como constructor a photoList
+
         recyclerViewPhotos.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewPhotos.setAdapter(photoAdapter);
 
@@ -105,15 +106,15 @@ public class Querying_date extends AppCompatActivity {
                 "&page=" + page +
                 "&api_key=" + NASA_API_KEY;
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+        RequestQueue queue = Volley.newRequestQueue(this);//instancia que utiliza el metodo newRequestQueue, recibe como argumento el contexto
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,//realiza la solicitud y recibe una respuesta en formato json
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            photoList.clear();
+                            photoList.clear();//limpiar lista para evitar datos duplicados
 
-                            JSONArray photosArray = response.getJSONArray("photos");
+                            JSONArray photosArray = response.getJSONArray("photos");//se obtiene un objeto json llamdo photos
                             for (int i = 0; i < photosArray.length(); i++) {
                                 JSONObject photoObject = photosArray.getJSONObject(i);
                                 String imageUrl = photoObject.getString("img_src");
@@ -142,4 +143,5 @@ public class Querying_date extends AppCompatActivity {
 
         queue.add(request);
     }
+
 }

@@ -20,23 +20,21 @@ import java.util.List;
 
 public class PhotoSolAdapter extends RecyclerView.Adapter<PhotoSolAdapter.PhotoViewHolder> {
 
-    private List<PhotoSol> photoSolList;
-    private List<PhotoSol> favoritesList;
+    private List<PhotoSol> photoSolList;//declara una lista de objetos llamada PHOTOSOLLIST
 
-    public PhotoSolAdapter(List<PhotoSol> photoSolList) {
+    public PhotoSolAdapter(List<PhotoSol> photoSolList) {//sirve para acceder a esto por otros metodos de la clase
         this.photoSolList = photoSolList;
-        this.favoritesList = new ArrayList<>();
     }
 
     @NonNull
     @Override
     public PhotoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_photo_date, parent, false);
-        return new PhotoViewHolder(itemView);
+        return new PhotoViewHolder(itemView);//inflador de recyclerView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PhotoViewHolder holder, int position) {//
         PhotoSol photoSol = photoSolList.get(position);
 
         Glide.with(holder.itemView.getContext())
@@ -50,27 +48,11 @@ public class PhotoSolAdapter extends RecyclerView.Adapter<PhotoSolAdapter.PhotoV
         holder.textViewLaunchDate.setText("Launch Date: " + photoSol.getLaunchDate());
         holder.textViewArrivalDate.setText("Arrival Date: " + photoSol.getArrivalDate());
         holder.textViewState.setText("State: " + photoSol.getState());
-        holder.btnSelectFavorites.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PhotoSol selectedPhotoSol = photoSolList.get(holder.getAdapterPosition());
-
-                // Agregar el elemento al ArrayList de favoritos
-                favoritesList.add(selectedPhotoSol);
-
-                // Notificar el cambio en el ArrayList de favoritos
-                notifyFavoritesChanged();
-                Toast.makeText(v.getContext(), "Save", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void notifyFavoritesChanged() {
         // Notificar el cambio en el ArrayList de favoritos
         notifyDataSetChanged();
-    }
-    public List<PhotoSol> getFavoritesList() {
-        return favoritesList;
     }
     @Override
     public int getItemCount() {
@@ -84,7 +66,6 @@ public class PhotoSolAdapter extends RecyclerView.Adapter<PhotoSolAdapter.PhotoV
         public TextView textViewLaunchDate;
         public TextView textViewArrivalDate;
         public TextView textViewState;
-        public ImageButton btnSelectFavorites;
 
         public PhotoViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -94,7 +75,6 @@ public class PhotoSolAdapter extends RecyclerView.Adapter<PhotoSolAdapter.PhotoV
             textViewLaunchDate = itemView.findViewById(R.id.textViewLaunchDate);
             textViewArrivalDate = itemView.findViewById(R.id.textViewArrivalDate);
             textViewState = itemView.findViewById(R.id.textViewState);
-            btnSelectFavorites = itemView.findViewById(R.id.seleccionFavorites);
         }
     }
 }
